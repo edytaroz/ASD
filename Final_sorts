@@ -1,0 +1,79 @@
+def f(T):
+    alf = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
+           "w", "x", "y", "z"]
+
+    def search(tab, k):
+        n = len(tab)
+        mid = 0
+        l = 0
+        r = n - 1
+        while tab[mid] != k:
+            mid = l + (r - l) // 2
+            if tab[mid] < k:
+                l = mid + 1
+            elif tab[mid] == k:
+                continue
+            else:
+                r = mid - 1
+        return mid
+
+    def is_anagram(a, b):
+        if len(a) == len(b):
+            c = [0 for _ in range(len(alf))]
+            n = len(a)
+            flag = True
+            for i in range(n):
+                p = search(alf, a[i])
+                w = search(alf, b[i])
+                c[p] += 1
+                c[w] -= 1
+            for i in range(len(alf)):
+                if c[i] != 0:
+                    flag = False
+            return flag
+        else:
+            return False
+
+    def partition(tab, p, r):
+        x = len(tab[r])
+        i = p - 1
+        for j in range(p, r):
+            if len(tab[j]) < x:
+                i += 1
+                tab[j], tab[i] = tab[i], tab[j]
+        tab[r], tab[i + 1] = tab[i + 1], tab[r]
+        return i + 1
+
+    def quicksort(tab, p, r):
+        while p < r:
+            q = partition(tab, p, r)
+            quicksort(tab, p, q - 1)
+            p = q + 1
+
+    def sort(tab):
+        leng = len(tab)
+        mx = 1
+        for i in range(leng):
+            if len(tab[i]) > mx:
+                mx = len(tab[i])
+        c = [[] for _ in range(mx + 1)]
+        for i in range(leng):
+            c[len(tab[i])].append(tab[i])
+        quicksort(c, 0, mx)
+        k = 0
+        mc = 1
+        for i in range(mx, -1, -1):
+            f1 = len(c[i])
+            t = [True for _ in range(f1)]
+            if f1 > 1 and f1 > mc:
+                for j in range(f1):
+                    count = 0
+                    if t[j]:
+                        for k in range(j, f1):
+                            if is_anagram(c[i][j], c[i][k]):
+                                count += 1
+                                t[k] = False
+                        if count > mc:
+                            mc = count
+        return mc
+    return sort(T)
