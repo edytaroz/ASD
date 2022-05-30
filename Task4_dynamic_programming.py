@@ -26,8 +26,7 @@ def bubble(tab,l):
                 fl = 1
         if fl == 0:
             flag = False
-
-            
+          
 def new_building(B,i):
     l = 0
     r = i - 1
