@@ -17,6 +17,7 @@ def f(T):
                 r = mid - 1
         return mid
 
+
     def is_anagram(a, b):
         if len(a) == len(b):
             c = [0 for _ in range(len(alf))]
