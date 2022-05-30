@@ -1,6 +1,6 @@
-from zad5testy import runtests
+
 from queue import PriorityQueue
-#Edyta Rozczypała
+
 #Deklarujemy kolejke priorytetową. Wkładamy do niej te indeksy i ich wartości,
 #kóre są w naszym zasięgu i których wartości nie są równe 0. Wtedy zdejmujemy
 #największą wartość z kolejki i dodajemy ją do zasięgu. Powtarzamy aż zasięg
@@ -23,12 +23,3 @@ def pq_frog(T):
                 skok += T[maks]
     l.sort()
     return l
-
-
-def plan(T):
-    # tu prosze wpisac wlasna implementacje
-    return pq_frog(T)
-
-
-# zmien all_tests na True zeby uruchomic wszystkie testy
-runtests( plan, all_tests = True )
