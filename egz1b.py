@@ -1,12 +1,4 @@
 from egz1btesty import runtests
-#Edyta Rozczypała
-#Najpierw uzupełniamy wartości x w drzewie. Będzie to tablica z poziomami, na których
-#znajdują się liście w poddrzewie danego wierzchołka. Następnie sortujemy niemalejąco
-#tablice z poziomami w korzeniu, a potem tworzymy inną tablicę bez powtórzonych
-#poziomów. Następnie dla każdego poziomu z tablicy uruchamiamy algorytm szukający
-#minimalnej liczby uciętych krawędzi do otrzymania ładnego drzewa. Złożoność O(n*n)
-
-
 
 class Node:
   def __init__( self ):
