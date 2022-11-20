@@ -1,9 +1,5 @@
 from kol3btesty import runtests
 from queue import PriorityQueue
-#Edyta Rozczypała
-#Dla każdej pary lotnisk tworzymy nową krawędź w nowym grafie, do tego grafu dodajemy
-#drogi. Potem robimy algorytm najkrótszych ścieżek Dijkstry.
-
 
 def air1(G,A,s,t):
     n = len(G)
